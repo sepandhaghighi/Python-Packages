@@ -3,7 +3,7 @@ Python-Packages
 
 
 
-I Wrote This Packages For A Machine Learning Program.
+I Wrote This Packages For University Machine Learning Project.
 
 
 List Of Packages :
@@ -19,3 +19,12 @@ List Of Packages :
 5.Regression Model
 
 6.Plot
+
+
+Availabel Package :
+
+1.Vector
+
+
+
+5/15/2014
