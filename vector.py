@@ -1,27 +1,17 @@
 from numbers import *
 from operator import *
 from sys import *
+def Dot(self,v):
+    '(vec,vec)--> Integer'
+    a=vec(v.D,{})
+    if len(self.D)!=len(v.D):
+        print("Domain Is Not The Same")
+    else:
+        s=0
+        for i in v.D:
+            s=s+self.R[i]*v.R[i]
+        return s
 class vec:
-    class One:
-        def __add__(self, other): return self if other == 0 else 0
-        __sub__ = __add__
-        def __mul__(self, other):
-            if isinstance(other, Number):
-                return 0 if other == 0 else self
-            return other
-        def __div__(self, other):
-            if other == 0: raise ZeroDivisionError
-            return self
-        __truediv__ = __div__
-        def __rdiv__(self,other): return other
-        __rtruediv__ = __rdiv__
-        __radd__ = __add__
-        __rsub__ = __add__
-        __rmul__ = __mul__
-        def __str__(self): return 'one'
-        __repr__ = __str__
-        def __neg__(self): return self
-        def __bool__(self): return True
         
     def __init__(self,D,R):
         self.D=D
@@ -63,17 +53,7 @@ class vec:
         ''' (vec) -> vec
         '''     
         return -1*self
-    def Dot(self,v):
-        ''' (vec , vec) -> Number
-        '''     
-        a=vec(v.D,{})
-        if len(self.D)!=len(v.D):
-            print("Domain Is Not The Same")
-        else:
-            s=0
-            for i in v.D:
-                s=s+self.R[i]*v.R[i]
-            return s
+
     def __pow__(self,v):
         ''' (vec , Int) -> vec
         '''     
