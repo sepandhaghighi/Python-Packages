@@ -1,6 +1,7 @@
 from numbers import *
 from operator import *
 from sys import *
+from math import*
 def Dot(self,v):
     '(vec,vec)--> Integer'
     a=vec(v.D,{})
@@ -11,6 +12,42 @@ def Dot(self,v):
         for i in v.D:
             s=s+self.R[i]*v.R[i]
         return s
+def list2vec(list_1,list_2=[]):
+    "(Domain , Codomain)--> vec"
+    if len(list_2)==0:
+        Domain=[]
+        for i in range(len(list_1)):
+            Domain.append(i+1)
+        R={Domain[i]:list_1[i] for i in range(len(list_1))}
+        return vec(Domain,R)
+    elif len(list_1)!=len(list_2):
+        print("Size Of Lists Are Not Same")
+    else:
+        E={list_1[i]:list_2[i] for i in range(len(list_1))}
+        return vec(list_1,E)
+def vec2list(vector,a=1):
+    "(vec ,1:Domain)--> list"
+    if a==1:
+        return list(vector.R.keys())
+    else :
+        return list(vecotr.R.values())
+def vec2dic(vecotr):
+    "(vec)--> dict"
+    return vecotr.R      
+def dic2vec(dic):
+    "(dict)--> vec"
+    return vec(list(dic.keys()),dic)
+def cardinal(vector):
+    "(vec)--> integer"
+    return len(vector)
+def num(vector):
+    "(vector)--> integer"
+    s=0
+    for i in list(vector.R.values()):
+        s=s+i**2
+    return sqrt(s)    
+    
+    
 class vec:
         
     def __init__(self,D,R):
@@ -23,8 +60,6 @@ class vec:
         for i in range(len(self.D)):
             if self.D[i] not in list(self.R.keys()):
                 self.R[self.D[i]]=0        
-    def show(self):
-        print('Vec(',self.D,',',self.R,')')
     def __add__(self,v):
         ''' (vec , vec) -> vec
         '''     
