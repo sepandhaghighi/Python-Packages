@@ -60,6 +60,36 @@ def total_mul(vector):
 '''
     v=list(vector.R.values())
     return reduce(lambda x,y:x*y , v)
+def clear(vector):
+    vector.R=dict()
+def unit(dim=3,point=1):
+    if point<=dim:
+        d=vec(range(1,dim+1));
+        d[point]=1
+        return d
+    else:
+        print("Invalid Data")
+def isorthogonal(vec_1,vec_2):
+    if Dot(vec_1,vec_2)==0:
+        return True
+    else:
+        return False
+def rad2deg(r):
+    return (r*180)/pi
+def deg2rad(d):
+    '''
+    (Degree)--> Radian  , Deg2Rad Converter
+'''
+    return (d*pi)/180
+def angle(vec_1,vec_2,unit='Deg'):
+    
+    d=Dot(vec_1,vec_2)
+    angl=acos(d/(num(vec_1)*num(vec_2)))
+    if unit=='Deg':
+        return rad2deg(angl)
+    else:
+        return angl
+    
 class vec:
         
     def __init__(self,D={},R={}):
