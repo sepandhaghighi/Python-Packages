@@ -64,8 +64,8 @@ class vec:
         
     def __init__(self,D={},R={}):
         "(set,dict)--> vec"
-        self.D=D
-        self.R=R
+        self.D=set(D)
+        self.R=dict(R)
         for j in list(self.R.keys()):
             if j not in self.D:
                 print("Domain And CoDomain Are  Not Syns")
